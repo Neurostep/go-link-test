@@ -1,9 +1,9 @@
-##Go link test
+## Go link test
 
 This repository aims to show the case which I have found during my development circle. This repo
 contains only the minimum which reproduces the issue (or perhaps a *behavior*) with go linker. 
 
-###The problem
+### The problem
 
 In my project I am using CGO and cross builder feature in order to provide binaries for different
 platforms (Linux, Mac, Windows). This project has a long story and the approach has been there
@@ -15,7 +15,7 @@ go linker I found out that after 1.13 version Go linker stopped including `-lws2
 flags to the GCC compiler. It seems that the behavior of [linking PE imported libraries](https://github.com/golang/go/blob/0f47c12a29e6277c8139e8d4f5a45272e437fe6e/src/cmd/link/internal/ld/lib.go#L1660) has been
 changed.
 
-###Usage
+### Usage
 
 There are two docker images to demonstrate the issue:
 
@@ -138,6 +138,6 @@ collect2: error: ld returned 1 exit status
 As you might notice there is linker error thrown up, and we can see there is now `"-lwinmm" "-lws2_32"`
 provided to the compiler
 
-###The workaround
+### The workaround
 
 To fix linking problem for Go version 1.13+ we can add corresponding flags to linker via `-extldflags`
