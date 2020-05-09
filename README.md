@@ -135,7 +135,7 @@ host link: "x86_64-w64-mingw32-gcc" "-m64" "-mconsole" "-Wl,--tsaware" "-Wl,--nx
 collect2: error: ld returned 1 exit status
 ```
 
-As you might notice there is linker error thrown up, and we can see there is now `"-lwinmm" "-lws2_32"`
+As you might notice there is linking error, and we can see there is no `"-lwinmm" "-lws2_32"`
 provided to the compiler
 
 ### The workaround
