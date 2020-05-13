@@ -141,3 +141,7 @@ provided to the compiler
 ### The workaround
 
 To fix linking problem for Go version 1.13+ we can add corresponding flags to linker via `-extldflags`
+
+### The cause
+
+As a part of security issues fixing process Go stopped implicitly importing `ws2_32` & `winmm` DLL's. Here you can find more details: https://github.com/golang/go/commit/9b6e9f0c8c66355c0f0575d808b32f52c8c6d21c
